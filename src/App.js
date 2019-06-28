@@ -9,16 +9,17 @@ import {
 import logo from './logo.svg';
 import './App.css';
 
-import MoviesList from './MoviesList';
-import MovieDetail from './MovieDetail';
+import MoviesList from './movies/MoviesList';
+import MovieDetail from './movies/MovieDetail';
 import { applyMiddleware, createStore } from 'redux';
 import {Provider} from 'react-redux';
 import rootReducer from './rootReducer';
-import Toggle from './Toggle';
+import Toggle from './toggle/Toggle';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { logger } from 'redux-logger';
+import thunk from 'redux-thunk';
 
-const middleware = [ logger ]
+const middleware = [ logger, thunk ]
 
 const store = createStore(
   rootReducer, 

@@ -12,7 +12,6 @@ const messageReducer = (state = initialState, action) => {
         ...state,
         messageVisibility: !state.messageVisibility,
       };
-    
     default:
       return state;
   }
