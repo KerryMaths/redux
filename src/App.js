@@ -6,8 +6,6 @@ import {
   Switch,
   Link,
 } from 'react-router-dom';
-import logo from './logo.svg';
-import './App.css';
 
 import MoviesList from './movies/MoviesList';
 import MovieDetail from './movies/MovieDetail';
@@ -18,13 +16,17 @@ import Toggle from './toggle/Toggle';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
+import { save, load } from "redux-localstorage-simple";
+
+import logo from './logo.svg';
+import './App.css';
 
 const middleware = [ logger, thunk ]
 
 const store = createStore(
   rootReducer, 
-  {},
-  composeWithDevTools(applyMiddleware(...middleware))
+  load(),
+  composeWithDevTools(applyMiddleware(...middleware, save()))
   );
 
 const App = () => (
