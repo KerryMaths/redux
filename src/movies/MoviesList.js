@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getMovies } from '../movies/actions'
+import { getMovies } from './actions'
 import styled from 'styled-components';
 import Movie from './Movie';
 
